@@ -2,7 +2,7 @@
     <h2 class="heading">Filtra noticias por país y categoría</h2>
     <div class="row mt-3">
         <div class="col-lg-8 offset-lg-2">
-            <form (ngSubmit)="searchNews()">
+            <form (ngSubmit)="sendInfo()">
                 <div class="form-group">
                     <select [(ngModel)]="categorySelected" name="category" class="form-control">
                         <option *ngFor="let category of categories;" 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output ,EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-formulario',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario.component.css']
 })
 export class FormularioComponent implements OnInit {
+
+  @Output() paramsSelected = new EventEmitter<any>();
 
   public countrySelected : string = 'ar';
   public categorySelected : string = 'general';
@@ -33,9 +35,13 @@ export class FormularioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  searchNews() {
-    console.log(this.categorySelected);
-    console.log(this.countrySelected);
+  sendInfo() {
+    const params = {
+      category : this.categorySelected,
+      country : this.countrySelected
+    };
+
+    this.paramsSelected.emit(params);
   }
 
 }

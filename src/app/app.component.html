@@ -1,4 +1,8 @@
 <app-navbar [titulo]="'Buscador de Noticias'"></app-navbar>
 <div class="container">
-  <app-formulario></app-formulario>
+  <app-formulario (paramsSelected)="searchNews($event)"></app-formulario>
+  <app-spinner *ngIf="loading" ></app-spinner>
+  <!-- [listNews] tiene que corresponder con el input de listado noticias y 
+    "listNews" con el de app.component -->
+  <app-listado-noticias [listNews]="listNews"></app-listado-noticias>
 </div>
